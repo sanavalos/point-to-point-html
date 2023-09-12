@@ -1,0 +1,24 @@
+{
+  "name": "point-to-point-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format-html": "prettier --write \"*.html\"",
+    "format-css": "prettier --write \"./css/*.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanavalos/point-to-point-html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanavalos/point-to-point-html/issues"
+  },
+  "homepage": "https://github.com/sanavalos/point-to-point-html#readme",
+  "dependencies": {
+    "prettier": "^3.0.3"
+  }
+}
