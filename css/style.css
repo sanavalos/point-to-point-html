@@ -1,22 +1,26 @@
-.menu{
-    background-color:#71695B ;
-    color: white;
-    padding: 10px;
-    margin: 25px;
+.menu {
+  background-color: #71695b;
+  color: white;
+  padding: 10px;
+  margin: 25px;
 }
 
-.indexMenu, .shopMenu, .pointersMenu, .contactMenu, .loginMenu{
-    color: white
+.indexMenu,
+.shopMenu,
+.pointersMenu,
+.contactMenu,
+.loginMenu {
+  color: white;
 }
 
-.foot{
-    background-color:#BCB395 ;
-    color: white;
-    padding: 10px;
-    margin: 25px;
+.foot {
+  background-color: #bcb395;
+  color: white;
+  padding: 10px;
+  margin: 25px;
 }
 
-.register{
-    padding: 10px;
-    margin: 25px;   
+.register {
+  padding: 10px;
+  margin: 25px;
 }
