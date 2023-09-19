@@ -1,8 +1,14 @@
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  margin: 0;
+}
+
 .menu {
   background-color: #71695b;
   color: white;
   padding: 10px;
-  margin: 25px;
 }
 
 .indexMenu,
@@ -14,10 +20,15 @@
 }
 
 .foot {
-  background-color: #bcb395;
-  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 10vh;
   padding: 10px;
-  margin: 25px;
+  bottom: 0px;
+  color: white;
+  background-color: #bcb395;
 }
 
 .register {
