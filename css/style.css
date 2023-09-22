@@ -11,6 +11,35 @@ body {
   padding: 10px;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  color: white;
+  padding: 10px;
+  list-style: none;
+}
+
+.header a::after {
+  content: '|';
+  clear: both;
+  padding: 0 5px;
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  font-size: 20px;
+}
+
 .indexMenu,
 .shopMenu,
 .pointersMenu,
