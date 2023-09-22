@@ -64,3 +64,8 @@ a:active {
   padding: 10px;
   margin: 25px;
 }
+
+main {
+  display: grid;
+  grid-gap: 25px;
+}
