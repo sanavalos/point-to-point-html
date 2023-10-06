@@ -11,7 +11,7 @@ body {
   margin: 0;
 }
 
-header{
+.menu{
   margin: 5px 5px; 
   background-color: #71695b;
   padding: 0px 10px;
@@ -27,7 +27,7 @@ header{
 
 }
 
-.header{
+.nav-item{
 
   border: 2px;
   width: 160px;
@@ -38,11 +38,12 @@ header{
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  
+  list-style: none;
 
 }
 
-.menu{
+
+.pages{
 
   border: 2px;
   background-color: #71695b;
@@ -58,8 +59,9 @@ header{
 }
 
 a{
+
   text-decoration: none !important;
-  color: white !important;
+  color: white  !important;
 }
 
 

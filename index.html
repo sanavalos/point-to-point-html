@@ -1,138 +1,185 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Point to Point</title>
+    <link rel="icon" href="./images/favicon.ico">
+  </head>
 
-  <title>Point to Point</title>
-  <link rel="icon" href="./images/favicon.ico">
-</head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <header>
+      <nav class= "menu">
+        <li class="nav-item"><img src="./images/Logo.jfif" alt="Logo" width="90%"></li>
+      <ul class="pages">
+        <li class="nav-item"><a href="index.html" class="indexMenu">Home Page</a></li>
+        <li class="nav-item"><a href="Shop.html" class="shopMenu">Shop</a></li>
+        <li class="nav-item"><a href="Pointers.html" class="pointersMenu">Pointers</a></div>
+        </ul>
+      <li class="nav-item"><a href="login.html" class="loginMenu">Register</a></li>
+      </nav>
+    </header>
 
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <header>
-
-    <div class="header"><img src="./images/Logo.jfif" alt="Logo" width="90%"></div>
-    <nav class="menu">
-      <div class="header"><a href="index.html" class="indexMenu">Home Page</a></div>
-      <div class="header"><a href="Shop.html" class="shopMenu">Shop</a></div>
-      <div class="header"><a href="Pointers.html" class="pointersMenu">Pointers</a></div>
-    </nav>
-    <div class="header"><a href="login.html" class="loginMenu">Register</a></div>
-    </div>
-  </header>
-
-  <main>
-    <section class="work">
-      <h2>How Does It Work?</h2>
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+    <main>
+      <section class="work">
+        <h2>How Does It Work?</h2>
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./images/person-shopping-online.jpg"
+                min-height="500"
+                class="d-block w-100"
+                alt="Person shopping online"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Shop Online</h5>
+                <p>
+                  Explore a world of shopping at your fingertips, where you can
+                  discover and purchase products from your favorite stores and
+                  brands without leaving your comfort zone.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./images/person-holding-map.jpg"
+                min-height="500"
+                class="d-block w-100"
+                alt="Person holding map"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Choose Pickup Location</h5>
+                <p>
+                  Take control of your shopping experience by selecting the most
+                  convenient pickup spot, ensuring your purchases are ready
+                  where and when you need them.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./images/person-phone-notifications.jpg"
+                min-height="500"
+                class="d-block w-100"
+                alt="Person holding phone with notifications"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Get Real-time Notifications</h5>
+                <p>
+                  Stay informed and never miss a beat with instant updates on
+                  your order status, ensuring you're always in the know about
+                  the progress of your purchases and pickup availability.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./images/person-shopping-online.jpg" min-height="500" class="d-block w-100"
-              alt="Person shopping online" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Shop Online</h5>
-              <p>
-                Explore a world of shopping at your fingertips, where you can
-                discover and purchase products from your favorite stores and
-                brands without leaving your comfort zone.
-              </p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./images/person-holding-map.jpg" min-height="500" class="d-block w-100"
-              alt="Person holding map" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Choose Pickup Location</h5>
-              <p>
-                Take control of your shopping experience by selecting the most
-                convenient pickup spot, ensuring your purchases are ready
-                where and when you need them.
-              </p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./images/person-phone-notifications.jpg" min-height="500" class="d-block w-100"
-              alt="Person holding phone with notifications" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Get Real-time Notifications</h5>
-              <p>
-                Stay informed and never miss a beat with instant updates on
-                your order status, ensuring you're always in the know about
-                the progress of your purchases and pickup availability.
-              </p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <h2>Benefit</h2>
-      <dl>
-        <dt>Cheap shipping</dt>
-        <dd>
-          Commercial deliveries are, in most cases, cheaper than door-to-door
-          deliveries as surcharges and assessments are eliminated.
-        </dd>
+      <section>
+        <h2>Benefit</h2>
+        <dl>
+          <dt>Cheap shipping</dt>
+          <dd>
+            Commercial deliveries are, in most cases, cheaper than door-to-door
+            deliveries as surcharges and assessments are eliminated.
+          </dd>
 
-        <dt>Convenience</dt>
-        <dd>
-          Customers who want to guarantee the safety of their package against
-          theft by postal employees and neighbors will be benefited
-        </dd>
+          <dt>Convenience</dt>
+          <dd>
+            Customers who want to guarantee the safety of their package against
+            theft by postal employees and neighbors will be benefited
+          </dd>
 
-        <dt>Privacy</dt>
-        <dd>
-          Customers can be rest assured that packed and other sensitive
-          deliveries will be kept private and not intercepted by someone else
-        </dd>
-      </dl>
-    </section>
+          <dt>Privacy</dt>
+          <dd>
+            Customers can be rest assured that packed and other sensitive
+            deliveries will be kept private and not intercepted by someone else
+          </dd>
+        </dl>
+      </section>
 
-    <section>
-      <h2>Our Points</h2>
-      <map name="points">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26278.790330637283!2d-58.429764864378214!3d-34.58269240927982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1694230805979!5m2!1sen!2sar"
-          width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </map>
-    </section>
+      <section>
+        <h2>Our Points</h2>
+        <map name="points">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26278.790330637283!2d-58.429764864378214!3d-34.58269240927982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1694230805979!5m2!1sen!2sar"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </map>
+      </section>
 
-    <a href="#">go back up</a>
-  </main>
+      <a href="#">go back up</a>
+    </main>
 
-  <footer class="foot">
-    <!--<a href="contact.html" class="contactMenu">Contact Us</a>-->
-    <h4>
-      Copyright 2023 Point to Point | All rights reserved. | Developed by Gr.6
-    </h4>
-  </footer>
-</body>
-
+    <footer class="foot">
+      <!--<a href="contact.html" class="contactMenu">Contact Us</a>-->
+      <h4>
+        Copyright 2023 Point to Point | All rights reserved. | Developed by Gr.6
+      </h4>
+    </footer>
+  </body>
 </html>
