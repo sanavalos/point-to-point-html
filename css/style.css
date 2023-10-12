@@ -190,6 +190,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px,240px));
   column-gap: 10px;
+  row-gap: 10px;
   padding: 0px 0px 20px 0px;
   justify-content: space-between;
   border: 2px;
@@ -208,6 +209,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px,240px));
   column-gap: 10px;
+  row-gap: 10px;
   padding: 0px 0px 20px 0px;
   justify-content: space-between;
   border: 2px;
