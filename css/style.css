@@ -276,13 +276,27 @@ main {
 
 @media screen and (max-width: 768px){
   .contenedor{
-      grid-template-areas: "encabezado encabezado encabezado"
-                           "contenido contenido contenido"
-                           "sidebar sidebar sidebar"
-                           "widget-1 widget-1 widget-2"
-                           "pie pie pie";
+   margin: 20px auto; 
+   display: grid;
+   gap: 20px; 
+   grid-template-columns: repeat(1,1fr);
+   grid-template-rows: repeat(8, auto);
+   grid-template-areas: "banner"
+                        "dolar"
+                        "subtitle"
+                        "onSale"
+                        "subtitle2"
+                        "delivering"
+                        "subtitle3"
+                        "local";
+
   }
-}
+  .contenedor .onSale,
+  .contenedor .delivering,
+  .contenedor .local {
+    grid-template-columns: repeat(auto-fit, minmax(300px,300px));
+    justify-content: center;
+  }
 
   
  .menu{
