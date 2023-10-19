@@ -64,18 +64,6 @@ a:active {
   font-size: 25px;
 }
 
-.foot {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 10vh;
-  padding: 10px;
-  bottom: 0px;
-  color: white;
-  background-color: #bcb395;
-}
-
 .register {
   padding: 10px;
   margin: 25px;
@@ -289,4 +277,35 @@ main {
     width: fit-content;
     column-gap: 10px;
   }
+}
+
+.points {
+  justify-content: center;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  padding: 10px;
+  color: white;
+  background-color: #bcb395;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  padding: 10px;
+  color: white !important;
+  font-size: 25px;
+}
+
+.copyright {
+  padding: 10px;
+}
+
+.text-foot {
+  max-width: 25vw;
 }
