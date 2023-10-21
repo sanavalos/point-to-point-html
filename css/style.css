@@ -295,7 +295,7 @@ main {
   justify-content: space-evenly;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -312,19 +312,19 @@ main {
   cursor: pointer;
 }
 
-.users h2{
- display: flex;
- flex-direction: row;
- align-self: center;
- justify-content: center;
- border: solid 2px black;
- border-bottom: 0px;
- width: 100%;
- padding: 20px;
- border-radius: 15px 15px 0 0;
- margin: 0px;
- margin-bottom: -2px;
- z-index: 1;
+.users h2 {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  border: solid 2px black;
+  border-bottom: 0px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  margin: 0px;
+  margin-bottom: -2px;
+  z-index: 1;
 }
 
 .icons {
@@ -344,7 +344,7 @@ main {
   max-width: 25vw;
 }
 
-.section-users{
+.section-users {
   max-width: 800px;
   display: flex;
   flex-direction: column;
@@ -352,24 +352,24 @@ main {
   justify-content: center;
 }
 
-.section-users ul{
+.section-users ul {
   line-height: 2;
-  padding: 0  50px 20px 50px;
+  padding: 0 50px 20px 50px;
 }
 
-.section-users li{
- letter-spacing: 1px;
- margin: 15px 0;
+.section-users li {
+  letter-spacing: 1px;
+  margin: 15px 0;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: column;
   align-self: center;
   gap: 10px;
 }
 
-.buttons .form{
+.buttons .form {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -381,27 +381,27 @@ main {
 }
 
 .form-register {
- background-color: #bcb395;
- padding: 60px 40px;
- width: 350px;
+  background-color: #bcb395;
+  padding: 60px 40px;
+  width: 350px;
 }
 
-.visually-hidden { 
- position: absolute !important;
- height: 1px; 
- width: 1px;
- overflow: hidden;
- clip: rect(1px 1px 1px 1px);
- clip: rect(1px, 1px, 1px, 1px);
- white-space: nowrap;
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }
 
-.form-register h2{
- text-align: center;
- margin-bottom: 20px;
+.form-register h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.form-register fieldset{
+.form-register fieldset {
   border: none;
   display: flex;
   flex-direction: column;
@@ -418,34 +418,45 @@ main {
 }
 
 .form-register input,
-.form-register select
-{
- text-transform: uppercase;
- height: 30px;
+.form-register select {
+  text-transform: uppercase;
+  height: 30px;
 }
 
-.actions{
- margin: 0;
- border: solid 2px black;
- border-radius: 0px 15px 15px 15px;
- background-color: #bcb395;
- width: 600px;
+.actions {
+  margin: 0;
+  border: solid 2px black;
+  border-radius: 0px 15px 15px 15px;
+  background-color: #bcb395;
+  width: 600px;
 }
 
-.selected-user{
- background-color: #bcb395;
+.selected-user {
+  background-color: #bcb395;
 }
 
-.unselected-user{
- background-color: #644d44;
+.unselected-user {
+  background-color: #644d44;
 }
 
 @media screen and (max-width: 768px) {
-  .register{
-   display: flex;
-   flex-direction: column-reverse;
-   gap: 10vh;
-   justify-content: center;
-   align-items: center;
+  .form-register {
+    width: 100vw;
+  }
+  .register {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .actions {
+    margin: 0;
+    border: solid 2px black;
+    border-radius: 0;
+    background-color: #bcb395;
+    width: fit-content;
+    margin-bottom: 20px;
   }
 }
