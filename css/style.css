@@ -65,7 +65,6 @@ a {
 
 a:hover {
   color: #621c19 !important;
- /*background-color: #b3ae9f;*/
   border-radius: 4px;
   font-weight: bolder;
 }
@@ -81,7 +80,43 @@ main {
 }
 
 .work {
+  max-width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+#carouselExampleCaptions {
   max-width: 700px;
+}
+
+.carousel-caption {
+  background-color: black;
+  text-shadow: white;
+  font-weight: 500;
+  opacity: 0.4;
+  border-radius: 20px;
+}
+
+.description {
+  display: flex;
+  justify-content: space-around;
+  background-color: #bcb395;
+}
+.description-item {
+  text-align: center;
+  width: 350px;
+}
+
+.description :hover {
+  background-color: #71695b;
+  border-radius: 4px;
+}
+
+.maps {
+  text-align: center;
+}
+.maps h2 {
+  text-align: start;
 }
 
 .contenedor {
@@ -137,8 +172,7 @@ main {
   align-items: start;
   grid-area: dolar;
 }
-#app{
-  
+#app {
   width: 100%;
   column-gap: 20px;
   row-gap: 10px;
@@ -149,12 +183,12 @@ main {
   border: 2px solid #bcb395;
   border-radius: 10px;
 }
-.item-dolar h6{
+.item-dolar h6 {
   font-style: italic;
   font-weight: bolder;
-  text-align:center;
+  text-align: center;
 }
-.item-dolar p{
+.item-dolar p {
   margin-bottom: 5px;
   text-align: center;
 }
