@@ -48,6 +48,16 @@ body {
   justify-content: center;
 }
 
+.menu a {
+  border: 2px;
+  height: 73px;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 a {
   text-decoration: none !important;
   color: white !important;
@@ -55,7 +65,7 @@ a {
 
 a:hover {
   color: #621c19 !important;
-  background-color: #b3ae9f;
+ /*background-color: #b3ae9f;*/
   border-radius: 4px;
   font-weight: bolder;
 }
@@ -67,6 +77,7 @@ a:active {
 main {
   display: grid;
   grid-gap: 25px;
+  padding: 20px;
 }
 
 .work {
@@ -120,8 +131,32 @@ main {
 }
 
 .contenedor .dolar {
-  border: 2px dashed black;
+  padding: 0px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   grid-area: dolar;
+}
+#app{
+  
+  width: 100%;
+  column-gap: 20px;
+  row-gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0px;
+  border: 2px solid #bcb395;
+  border-radius: 10px;
+}
+.item-dolar h6{
+  font-style: italic;
+  font-weight: bolder;
+  text-align:center;
+}
+.item-dolar p{
+  margin-bottom: 5px;
+  text-align: center;
 }
 .contenedor .subtitle {
   border: 2px;
