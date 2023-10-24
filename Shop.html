@@ -10,7 +10,17 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@700&family=Urbanist&display=swap"
+      rel="stylesheet"
+    />
     <title>Point to Point</title>
     <link rel="icon" href="./images/favicon.ico" />
   </head>
@@ -23,7 +33,7 @@
     ></script>
     <header>
       <nav class="menu">
-        <img src="./images/Logo.jfif" alt="Logo" width="100px" />
+        <img src="./images/Logo.png" alt="Logo" width="100" />
         <ul class="pages">
           <li class="nav-item">
             <a href="index.html" class="indexMenu">Home</a>
@@ -45,7 +55,16 @@
           <img src="./images/IMG/banner4.jpg" alt="Logo" width="100%" />
         </div>
 
-        <div class="dolar">Cotizacion dolar desde appi</div>
+        <div class="dolar">
+          <div id="app">
+            <h2>Dollar</h2>
+            <div v-for="element in datos" class="item-dolar">
+              <h6>{{element.nombre}}</h6>
+              <p>Compra: ${{element.compra}}</p>
+              <p>Venta: ${{element.venta}}</p>
+            </div>
+          </div>
+        </div>
 
         <div class="subtitle">
           <h2>On sale</h2>
@@ -240,10 +259,44 @@
     </main>
 
     <footer class="foot">
-      <!--<a href="contact.html" class="contactMenu">Contact Us</a>-->
-      <h4>
-        Copyright 2023 Point to Point | All rights reserved. | Developed by Gr.6
-      </h4>
+      <div class="imagen-foot">
+        <img src="./images/Logo.png" alt="Logo" width="100" />
+      </div>
+      <div class="icons">
+        <div class="icons-ig">
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="icons-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </div>
+        <div class="icons-youtube">
+          <a href="#">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <div class="icons-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-foot">
+        <strong> Buy Online. Pick Up Anywhere. </strong>
+        <p>&copy; 2023 Point To</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
     </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
