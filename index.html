@@ -15,6 +15,12 @@
       href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@700&family=Urbanist&display=swap"
+      rel="stylesheet"
+    />
     <title>Point to Point</title>
     <link rel="icon" href="./images/favicon.ico" />
   </head>
@@ -27,7 +33,7 @@
     ></script>
     <header>
       <nav class="menu">
-        <img src="./images/Logo.jfif" alt="Logo" width="100px" />
+        <img src="./images/Logo.png" alt="Logo" width="100" />
         <ul class="pages">
           <li class="nav-item">
             <a href="index.html" class="indexMenu">Home</a>
@@ -45,7 +51,9 @@
 
     <main>
       <section class="work">
-        <h2>How Does It Work?</h2>
+        <div className="title">
+          <h1>How Does It Work?</h1>
+        </div>
         <div
           id="carouselExampleCaptions"
           class="carousel slide"
@@ -77,7 +85,7 @@
             <div class="carousel-item active">
               <img
                 src="./images/person-shopping-online.jpg"
-                min-height="500"
+                height="500"
                 class="d-block w-100"
                 alt="Person shopping online"
               />
@@ -93,7 +101,7 @@
             <div class="carousel-item">
               <img
                 src="./images/person-holding-map.jpg"
-                min-height="500"
+                height="500"
                 class="d-block w-100"
                 alt="Person holding map"
               />
@@ -109,7 +117,7 @@
             <div class="carousel-item">
               <img
                 src="./images/person-phone-notifications.jpg"
-                min-height="500"
+                height="500"
                 class="d-block w-100"
                 alt="Person holding phone with notifications"
               />
@@ -145,34 +153,38 @@
       </section>
 
       <section>
-        <h2>Benefit</h2>
-        <dl>
-          <dt>Cheap shipping</dt>
-          <dd>
-            Commercial deliveries are, in most cases, cheaper than door-to-door
-            deliveries as surcharges and assessments are eliminated.
-          </dd>
-
-          <dt>Convenience</dt>
-          <dd>
-            Customers who want to guarantee the safety of their package against
-            theft by postal employees and neighbors will be benefited
-          </dd>
-
-          <dt>Privacy</dt>
-          <dd>
-            Customers can be rest assured that packed and other sensitive
-            deliveries will be kept private and not intercepted by someone else
-          </dd>
+        <dl class="description">
+          <div class="description-item">
+            <dt>Cheap shipping</dt>
+            <dd>
+              Commercial deliveries are, in most cases, cheaper than
+              door-to-door deliveries as surcharges and assessments are
+              eliminated.
+            </dd>
+          </div>
+          <div class="description-item">
+            <dt>Convenience</dt>
+            <dd>
+              Customers who want to guarantee the safety of their package
+              against theft by postal employees and neighbors will be benefited
+            </dd>
+          </div>
+          <div class="description-item">
+            <dt>Privacy</dt>
+            <dd>
+              Customers can be rest assured that packed and other sensitive
+              deliveries will be kept private and not intercepted by someone
+              else
+            </dd>
+          </div>
         </dl>
       </section>
 
-      <section>
-        <h2>Our Points</h2>
+      <section class="maps">
         <map name="points">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26278.790330637283!2d-58.429764864378214!3d-34.58269240927982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1694230805979!5m2!1sen!2sar"
-            width="600"
+            width="100%"
             height="450"
             style="border: 0"
             allowfullscreen=""
@@ -187,7 +199,7 @@
 
     <footer class="foot">
       <div class="imagen-foot">
-        <img src="./images/Logo.jfif" alt="Logo" width="100px" />
+        <img src="./images/Logo.png" alt="Logo" width="100" />
       </div>
       <div class="icons">
         <div class="icons-ig">

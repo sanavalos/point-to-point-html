@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-family: 'Sometype Mono', monospace;
+  font-family: 'Urbanist', sans-serif;
+}
 .menu {
   background-color: #71695b;
   padding: 0px 15px;
@@ -48,6 +52,16 @@ body {
   justify-content: center;
 }
 
+.menu a {
+  border: 2px;
+  height: 73px;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 a {
   text-decoration: none !important;
   color: white !important;
@@ -55,7 +69,6 @@ a {
 
 a:hover {
   color: #621c19 !important;
-  background-color: #b3ae9f;
   border-radius: 4px;
   font-weight: bolder;
 }
@@ -67,10 +80,59 @@ a:active {
 main {
   display: grid;
   grid-gap: 25px;
+  padding: 20px 0;
 }
 
 .work {
+  max-width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title {
+  text-align: left;
+  width: fit-content;
+  color: white;
+}
+.work h1 {
+  font-size: 10vh;
+  font-weight: 400;
+  margin: 0;
+  left: 0;
+  display: table-caption;
+}
+#carouselExampleCaptions {
   max-width: 700px;
+}
+
+.carousel-caption {
+  background-color: black;
+  text-shadow: white;
+  font-weight: 500;
+  opacity: 0.8;
+  border-radius: 20px;
+}
+
+.description {
+  display: flex;
+  justify-content: space-around;
+  background-color: #bcb395;
+  flex-wrap: wrap;
+}
+
+.description-item {
+  text-align: center;
+  max-width: 350px;
+}
+
+.maps {
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .contenedor {
@@ -99,7 +161,7 @@ main {
 .contenedor .subtitle2,
 .contenedor .delivering,
 .contenedor .subtitle3,
-.contenedor.local {
+.contenedor .local {
   padding: 20px;
 }
 
@@ -120,8 +182,36 @@ main {
 }
 
 .contenedor .dolar {
-  border: 2px dashed black;
+  padding: 0px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   grid-area: dolar;
+}
+#app {
+  width: 100%;
+  column-gap: 20px;
+  row-gap: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 0px;
+  border: 2px solid #bcb395;
+  border-radius: 10px;
+}
+#app h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-dolar h6 {
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+}
+.item-dolar p {
+  margin-bottom: 5px;
+  text-align: center;
 }
 .contenedor .subtitle {
   border: 2px;
@@ -265,16 +355,11 @@ main {
   }
   .menu img {
     width: 100px;
-    height: 100px;
   }
   .pages {
     width: fit-content;
     column-gap: 10px;
   }
-}
-
-.points {
-  justify-content: center;
 }
 
 .foot {
@@ -289,10 +374,10 @@ main {
 
 .register {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   align-self: center;
   justify-content: space-evenly;
+  flex-direction: row-reverse;
 }
 
 .buttons {
@@ -396,7 +481,7 @@ main {
   white-space: nowrap;
 }
 
-.form-register h2 {
+.form-register h1 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -439,13 +524,16 @@ main {
   background-color: #644d44;
 }
 
+.work {
+  display: flex;
+}
+
 @media screen and (max-width: 768px) {
   .form-register {
     width: 100vw;
   }
   .register {
     display: flex;
-    flex-direction: column-reverse;
     gap: 10vh;
     justify-content: center;
     align-items: center;
@@ -458,5 +546,11 @@ main {
     background-color: #bcb395;
     width: fit-content;
     margin-bottom: 20px;
+  }
+  .description {
+    gap: 40px;
+  }
+  .description-item dd {
+    text-align: start;
   }
 }

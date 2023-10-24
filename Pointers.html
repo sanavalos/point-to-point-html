@@ -26,6 +26,11 @@
   </head>
 
   <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <header>
       <nav class="menu">
         <img src="./images/Logo.png" alt="Logo" width="100" />
@@ -44,76 +49,37 @@
       </nav>
     </header>
 
-    <main class="login">
-      <div class="register">
-        <section class="form-register">
-          <form action="">
-            <fieldset>
-              <legend class="visually-hidden">Register</legend>
-              <h1>REGISTER</h1>
-
-              <label for="name" class="visually-hidden">Name: </label>
-              <input type="text" name="name" id="name" placeholder="Name" />
-
-              <label for="lastname" class="visually-hidden">Lastname: </label>
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Lastname"
-              />
-
-              <label for="dob" class="visually-hidden">DOB: </label>
-              <input type="date" max="2023-12-31" />
-
-              <label for="email" class="visually-hidden">Email: </label>
-              <input type="text" name="email" id="email" placeholder="Email" />
-
-              <label for="password" class="visually-hidden">Password: </label>
-              <input
-                type="password"
-                name="password"
-                id="Password"
-                placeholder="Password"
-              />
-
-              <label for="confirm-password" class="visually-hidden"
-                >Confirm Password:
-              </label>
-              <input
-                type="password"
-                name="confirm-password"
-                id="confirm-password"
-                placeholder="Confirm Password"
-              />
-
-              <label for="user-type" class="visually-hidden"
-                >Choose user type:</label
-              >
-              <select name="user-type" id="user-type">
-                <option value="none">--SELECT A USER TYPE--</option>
-                <option value="customer">Customer</option>
-                <option value="pointer">Pointer</option>
-              </select>
-            </fieldset>
-
-            <br /><br />
-
-            <div class="buttons">
-              <button type="reset" value="clear" class="form">CLEAR</button>
-              <button type="submit" value="join" class="form">JOIN</button>
-            </div>
-          </form>
-        </section>
-        <section class="section-users">
-          <div class="users">
-            <h2 id="customer">CUSTOMER</h2>
-            <h2 id="pointer">POINTER</h2>
-          </div>
-          <ul class="actions"></ul>
-          <p></p>
-        </section>
-      </div>
+    <main class="maps">
+      <section>
+        <map name="points">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26278.790330637283!2d-58.429764864378214!3d-34.58269240927982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sar!4v1694230805979!5m2!1sen!2sar"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </map>
+      </section>
+      <section class="pointers">
+        <h1>Pointers</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+          illum perferendis id illo at omnis quaerat praesentium, vitae modi
+          voluptatem iure molestiae aperiam, eius dignissimos, quae distinctio
+          non magnam eum! Doloremque unde facere voluptate veniam. Excepturi
+          odit temporibus, porro consectetur maxime aut perspiciatis modi
+          mollitia? Dignissimos vero fugit recusandae beatae, architecto,
+          doloremque itaque qui, omnis accusamus atque ipsa iusto laudantium! Ad
+          placeat modi minus sint, distinctio illo magnam. Nobis amet in,
+          commodi distinctio dolorem similique iste hic tempora ut quas laborum,
+          omnis iusto. Quam quas, asperiores consectetur voluptatibus excepturi
+          facere?
+        </p>
+      </section>
+      <a href="#">go back up</a>
     </main>
 
     <footer class="foot">
@@ -153,6 +119,5 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
       </div>
     </footer>
-    <script src="script.js"></script>
   </body>
 </html>
