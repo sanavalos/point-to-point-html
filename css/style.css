@@ -121,11 +121,19 @@ main {
   justify-content: space-around;
   background-color: #bcb395;
   flex-wrap: wrap;
+  padding: 20px 0;
 }
 
 .description-item {
   text-align: center;
   max-width: 350px;
+}
+
+.description-item dt {
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .maps {
@@ -463,6 +471,7 @@ main {
   padding: 15px;
   width: 100%;
   border-radius: 15px;
+  border: solid black 2px;
 }
 
 .form-register {
@@ -504,8 +513,18 @@ main {
 
 .form-register input,
 .form-register select {
-  text-transform: uppercase;
+  border-radius: 5px;
   height: 30px;
+  font-weight: 500;
+  padding-left: 5px;
+  border: solid black 2px;
+}
+
+.form-register input::placeholder,
+.form-register select::placeholder {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .actions {
@@ -553,8 +572,33 @@ main {
   .description-item dd {
     text-align: start;
   }
+
+  footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .text-foot{
+    max-width: 100%;
+    text-align: center;
+  }
 }
 
+#error-message{
+ text-align: center;
+ margin: 0;
+ color: rgb(186, 26, 26);
+ font-weight: 700;
+}
+.error-input{
+  border: 2px solid rgb(186, 26, 26) !important; 
+}
+.checkbox{
+ font-size: 12px;
+ display: flex;
+ align-items: center;
+}
 .buttonHamb {
   padding: 2px;
   fill: white;

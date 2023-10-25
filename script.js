@@ -30,3 +30,70 @@ function myFunction(user) {
 myFunction('customer')
 
 const actions = document.getElementsByClassName("actions");
+
+function formValidation(){
+    let name = document.getElementById("name");
+    let lastname = document.getElementById("lastname");
+    let email = document.getElementById("email");
+    let errorMessage = document.getElementById("error-message");
+    let password = document.getElementById("password");
+    let confirmPassword = document.getElementById("confirm-password");
+    let checkbox = document.getElementById("checkbox");
+    let userType = document.getElementById("user-type");
+    let text = "Please Enter Valid Data";
+    let error = false;
+    name.classList.remove("error-input")
+    lastname.classList.remove("error-input")
+    email.classList.remove("error-input")
+    password.classList.remove("error-input")
+    confirmPassword.classList.remove("error-input")
+    if(!name.value){
+      name.classList.add("error-input")
+      error = true;
+    }
+    if(!lastname.value){
+     lastname.classList.add("error-input")
+     error = true;
+    }
+    if(!email.value?.includes("@")){
+      email.classList.add("error-input")
+      error = true;
+    }
+    if(!password.value){
+      password.classList.add("error-input")
+      error = true;
+    }
+    if(!confirmPassword.value){
+     confirmPassword.classList.add("error-input")
+     error = true;
+   }
+    if(password?.value !== confirmPassword?.value){
+      text = "Passwords do not match";
+      password.classList.add("error-input")
+      confirmPassword.classList.add("error-input")
+      error = true;
+    }
+    if(userType.value == 'none'){
+      userType.classList.add("error-input")
+      error = true;
+      text = "You must select a user type";
+    }
+    if(!checkbox.checked){
+     text = "You must be 18 years old or older to register";
+     checkbox.classList.add("error-input")
+     error = true;
+    }
+    if(error){
+     errorMessage.innerHTML = text;
+     return;
+    }else{
+     name.classList.remove("error-input")
+     lastname.classList.remove("error-input")
+     email.classList.remove("error-input")
+     password.classList.remove("error-input")
+     confirmPassword.classList.remove("error-input")
+     errorMessage.innerHTML = "";
+    }
+    alert("Form Submitted Successfully!");
+    return true;
+}
