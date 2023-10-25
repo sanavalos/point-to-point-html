@@ -32,6 +32,7 @@ myFunction('customer')
 const actions = document.getElementsByClassName("actions");
 
 function formValidation(){
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let name = document.getElementById("name");
     let lastname = document.getElementById("lastname");
     let email = document.getElementById("email");
@@ -47,6 +48,7 @@ function formValidation(){
     email.classList.remove("error-input")
     password.classList.remove("error-input")
     confirmPassword.classList.remove("error-input")
+    userType.classList.remove("error-input")
     if(!name.value){
       name.classList.add("error-input")
       error = true;
@@ -55,7 +57,8 @@ function formValidation(){
      lastname.classList.add("error-input")
      error = true;
     }
-    if(!email.value?.includes("@")){
+    if(!emailRegex.test(email.value)){
+      text = "Please enter a real email";
       email.classList.add("error-input")
       error = true;
     }
