@@ -64,11 +64,13 @@
     <main class="login">
       <div class="register">
         <section class="form-register">
-          <form action="">
+          <form 
+          action="javascript:formValidation()"
+          >
             <fieldset>
               <legend class="visually-hidden">Register</legend>
               <h1>REGISTER</h1>
-
+              <p id="error-message"></p>
               <label for="name" class="visually-hidden">Name: </label>
               <input type="text" name="name" id="name" placeholder="Name" />
 
@@ -80,9 +82,6 @@
                 placeholder="Lastname"
               />
 
-              <label for="dob" class="visually-hidden">DOB: </label>
-              <input type="date" max="2023-12-31" />
-
               <label for="email" class="visually-hidden">Email: </label>
               <input type="text" name="email" id="email" placeholder="Email" />
 
@@ -90,7 +89,7 @@
               <input
                 type="password"
                 name="password"
-                id="Password"
+                id="password"
                 placeholder="Password"
               />
 
@@ -112,6 +111,10 @@
                 <option value="customer">Customer</option>
                 <option value="pointer">Pointer</option>
               </select>
+              <div class="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <label for="checkbox">I confirm I am 18 years of age or older</label>
+              </div>
             </fieldset>
 
             <br /><br />
