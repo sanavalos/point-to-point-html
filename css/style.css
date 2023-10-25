@@ -554,3 +554,41 @@ main {
     text-align: start;
   }
 }
+
+.buttonHamb {
+  padding: 2px;
+  fill: white;
+  background-color: #71695b;
+  border: 0px;
+}
+
+.menu .buttonHamb{
+  display: none;
+}
+
+.pages-movile{
+  display: none;
+}
+
+.active{
+  display: block !important;
+}
+@media (max-width: 480px){
+  .menu .buttonHamb{
+    display:block;
+    cursor: pointer;
+}
+  .pages, 
+  .menu a {
+  width: 100%;
+  display: none;
+}
+
+  .pages-movile{
+  flex-direction: column;
+  display: none;
+  width: 100%;
+  background-color: #71695b;
+  padding-left: 0;
+}
+}
