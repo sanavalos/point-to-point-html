@@ -31,6 +31,92 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const URL = 'http://127.0.0.1:5000/'
+
+      function removeProduct(id) {
+        try {
+          fetch(URL + `products/${id}`, {
+            method: 'DELETE',
+          }).then((response) => {
+            if (response.ok) {
+              alert('Producto eliminado correctamente.')
+              window.location.reload()
+            } else {
+              throw new Error('Error al eliminar el producto.')
+            }
+          })
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      try {
+        fetch(URL + 'products', {
+          method: 'GET',
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json()
+            } else {
+              throw new Error('Error al agregar el equipo.')
+            }
+          })
+          .then((response) => {
+            response.forEach((element) => {
+              let recentlyAdded =
+                document.getElementsByClassName('recentlyAdded')[0]
+              let items = document.createElement('div')
+              items.classList.add('items')
+              let img = document.createElement('img')
+              img.src = './images/IMG/IMG-8.jpg'
+              img.alt = element.name
+              let info = document.createElement('div')
+              info.classList.add('info')
+              let h3 = document.createElement('h3')
+              h3.innerHTML = element.name
+              let p = document.createElement('p')
+              p.innerHTML = element.description
+              let price = document.createElement('div')
+              price.classList.add('price')
+              let p1 = document.createElement('p')
+              p1.innerHTML = 'U$D ' + element.price
+              let editButton = document.createElement('button')
+              editButton.innerHTML = 'Edit Product'
+              editButton.addEventListener('click', function editProduct() {
+                event.preventDefault()
+                window.location.href = `edit.html?id=${element.id}`
+              })
+              let removeButton = document.createElement('button')
+              removeButton.innerHTML = 'Remove Product'
+              removeButton.addEventListener('click', function deleteProduct() {
+                event.preventDefault()
+                removeProduct(element.id)
+              })
+              let addButton = document.createElement('button')
+              addButton.innerHTML = 'Add to list'
+              info.appendChild(h3)
+              info.appendChild(p)
+              price.appendChild(p1)
+              info.appendChild(price)
+              info.appendChild(editButton)
+              info.appendChild(removeButton)
+              info.appendChild(addButton)
+              items.appendChild(img)
+              items.appendChild(info)
+              if (element.sale_price) {
+                let p2 = document.createElement('p')
+                p1.classList.add('sale')
+                p2.innerHTML = 'U$D ' + element.sale_price
+                price.appendChild(p2)
+              }
+              recentlyAdded.appendChild(items)
+            })
+          })
+      } catch (error) {
+        console.log(error)
+      }
+    </script>
     <header>
       <nav class="menu">
         <img src="./images/Logo.png" alt="Logo" width="100" />
@@ -89,6 +175,69 @@
               <h6>{{element.nombre}}</h6>
               <p>Compra: ${{element.compra}}</p>
               <p>Venta: ${{element.venta}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subtitle2">
+          <h2>Recently Added</h2>
+          <a href="admin.html">Add product</a>
+        </div>
+
+        <div class="recentlyAdded">
+          <div class="items">
+            <img src="./images/IMG/IMG-6.jpg" alt="product 6" />
+            <div class="info">
+              <h3>Nike Nitro</h3>
+              <p>Nike Men's Air Max Shoes</p>
+              <div class="price">
+                <p>U$D 85</p>
+              </div>
+              <button>Add to list</button>
+            </div>
+          </div>
+          <div class="items">
+            <img src="./images/IMG/IMG-7.jpg" alt="product 7" />
+            <div class="info">
+              <h3>Nike Blastic</h3>
+              <p>Nike Men's urban Shoes</p>
+              <div class="price">
+                <p>U$D 71</p>
+              </div>
+              <button>Add to list</button>
+            </div>
+          </div>
+          <div class="items">
+            <img src="./images/IMG/IMG-8.jpg" alt="product 8" />
+            <div class="info">
+              <h3>Nike AirConviction</h3>
+              <p>Nike Women's Air Max Shoes</p>
+              <div class="price">
+                <p>U$D 79</p>
+              </div>
+              <button>Add to list</button>
+            </div>
+          </div>
+          <div class="items">
+            <img src="./images/IMG/IMG-9.jpg" alt="product 9" />
+            <div class="info">
+              <h3>Attix Prestige</h3>
+              <p>Women's urban Shoes</p>
+              <div class="price">
+                <p>U$D 65</p>
+              </div>
+              <button>Add to list</button>
+            </div>
+          </div>
+          <div class="items">
+            <img src="./images/IMG/IMG-15.jpg" alt="product 15" />
+            <div class="info">
+              <h3>Converse Casual</h3>
+              <p>All Star Stripes Sneakers</p>
+              <div class="price">
+                <p>U$D 75</p>
+              </div>
+              <button>Add to list</button>
             </div>
           </div>
         </div>
@@ -154,68 +303,6 @@
               <div class="price">
                 <p>U$D 99</p>
                 <p>U$D 71</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="subtitle2">
-          <h2>Delivering Today</h2>
-        </div>
-
-        <div class="delivering">
-          <div class="items">
-            <img src="./images/IMG/IMG-6.jpg" alt="product 6" />
-            <div class="info">
-              <h3>Nike Nitro</h3>
-              <p>Nike Men's Air Max Shoes</p>
-              <div class="price">
-                <p>U$D 85</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-7.jpg" alt="product 7" />
-            <div class="info">
-              <h3>Nike Blastic</h3>
-              <p>Nike Men's urban Shoes</p>
-              <div class="price">
-                <p>U$D 71</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-8.jpg" alt="product 8" />
-            <div class="info">
-              <h3>Nike AirConviction</h3>
-              <p>Nike Women's Air Max Shoes</p>
-              <div class="price">
-                <p>U$D 79</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-9.jpg" alt="product 9" />
-            <div class="info">
-              <h3>Attix Prestige</h3>
-              <p>Women's urban Shoes</p>
-              <div class="price">
-                <p>U$D 65</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-15.jpg" alt="product 15" />
-            <div class="info">
-              <h3>Converse Casual</h3>
-              <p>All Star Stripes Sneakers</p>
-              <div class="price">
-                <p>U$D 75</p>
               </div>
               <button>Add to list</button>
             </div>

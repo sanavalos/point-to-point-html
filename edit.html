@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Point to Point</title>
+  </head>
+
+  <body>
+    <div class="contenido">
+      <h1>Modify Product</h1>
+
+      <div id="app">
+        <form @submit.prevent="obtenerEquipo">
+          <label for="id">ID:</label>
+          <input type="text" v-model="id" required /><br />
+          <button type="submit">Search Product</button>
+        </form>
+        <div>
+          <h2>Product's details</h2>
+          <form @submit.prevent="guardarCambios">
+            <label for="tipoModificar">Name:</label>
+            <input
+              type="text"
+              id="tipoModificar"
+              v-model="name"
+              required
+            /><br />
+
+            <label for="descripcionModificar">Description:</label>
+            <input
+              type="text"
+              id="descripcionModificar"
+              v-model="description"
+              required
+            /><br />
+
+            <br />
+            <label for="priceModificar">Price:</label>
+            <input
+              type="number"
+              id="priceModificar"
+              v-model="price"
+              required
+            /><br />
+
+            <label for="salePriceModificar">Sale Price:</label>
+            <input
+              type="text"
+              id="salePriceModificar"
+              v-model="salePrice"
+              required
+            /><br />
+
+            <button type="submit">Update Product</button>
+            <a href="modificaciones.html">Cancel</a>
+          </form>
+        </div>
+      </div>
+
+      <script src="https://unpkg.com/vue@next"></script>
+      <script>
+        const URL = 'http://127.0.0.1:5000/'
+        const app = Vue.createApp({
+          data() {
+            return {
+              id: '',
+              name: '',
+              description: '',
+              price: '',
+              salePrice: '',
+            }
+          },
+
+          methods: {
+            getParameterByName(name, url) {
+              console.log('AAAAAAA')
+              if (!url) url = window.location.href
+              name = name.replace(/[\[\]]/g, '\\$&')
+              var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url)
+              if (!results) return null
+              if (!results[2]) return ''
+              return decodeURIComponent(results[2].replace(/\+/g, ' '))
+            },
+            obtenerEquipo() {
+              fetch(URL + 'products/' + this.id)
+                .then((response) => {
+                  if (response.ok) {
+                    return response.json()
+                  } else {
+                    throw new Error('Error al obtener los datos del equipo.')
+                  }
+                })
+                .then((data) => {
+                  this.name = data.name
+                  this.description = data.description
+                  this.price = data.price
+                  this.salePrice = data.sale_price
+                })
+                .catch((error) => {
+                  alert('Código no encontrado.')
+                })
+            },
+            guardarCambios() {
+              const formData = new FormData()
+              formData.append('id', this.id)
+              formData.append('name', this.name)
+              formData.append('description', this.description)
+              formData.append('price', this.price)
+              formData.append('sale_price', this.salePrice)
+
+              fetch(URL + 'products/' + this.id, {
+                method: 'PUT',
+                body: formData,
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    return response.json()
+                  } else {
+                    throw new Error('Error al guardar los cambios del equipo.')
+                  }
+                })
+
+                .then((data) => {
+                  alert('Equipo actualizado correctamente.')
+                  this.limpiarFormulario()
+                })
+
+                .catch((error) => {
+                  console.error('Error:', error)
+                  alert('Error al actualizar el equipo.')
+                })
+            },
+
+            limpiarFormulario() {
+              this.id = ''
+              this.description = ''
+              this.name = ''
+              this.price = ''
+              this.salePrice = ''
+            },
+          },
+          mounted() {
+            this.id = this.getParameterByName('id')
+            this.obtenerEquipo()
+          },
+        })
+
+        app.mount('#app')
+      </script>
+    </div>
+  </body>
+</html>
