@@ -54,8 +54,8 @@ class Products:
     def add_product(self, id, name, description, price, sale_price = None):
 
         self.cursor.execute(f"SELECT * FROM products WHERE id = {id}")
-        equipo_existe = self.cursor.fetchone()
-        if equipo_existe:
+        product_exists = self.cursor.fetchone()
+        if product_exists:
             return False
 
         sql = f"INSERT INTO products \
@@ -93,14 +93,14 @@ class Products:
         product = self.query_product(id)
         if product:
             print("-" * 40)
-            print(f"Código.....: {product['id']}")
-            print(f"Nombre.....: {product['name']}")
-            print(f"Descripción: {product['description']}")
-            print(f"Tipo.......: {product['price']}")
-            print(f"Categoria..: {product['sale_price']}")
+            print(f"ID.....: {product['id']}")
+            print(f"Name.....: {product['name']}")
+            print(f"Description: {product['description']}")
+            print(f"Price.......: {product['price']}")
+            print(f"Sale price..: {product['sale_price']}")
             print("-" * 40)
         else:
-            print("Equipo no encontrado.")
+            print("Product not found.")
 
 #####################
 products = Products(host='localhost', user='root', password='', database='miapp')
@@ -110,14 +110,13 @@ def list_products():
     all_products = products.list_products()
     return jsonify(all_products)
 
-
 @app.route("/products/<int:id>", methods=["GET"])
 def show_product(id):
     product = products.query_product(id)
     if product:
         return jsonify(product), 201
     else:
-        return "Equipo no encontrado.", 404
+        return "Product not found.", 404
 
 @app.route("/products", methods=["POST"])
 def add_product():
@@ -130,12 +129,12 @@ def add_product():
     product = products.query_product(id)
     if not product: 
         if products.add_product(id, name, description, price, sale_price):
-            return jsonify({"mensaje": "Equipo agregado correctamente."}), 201
+            return jsonify({"mensaje": "Product added successfully."}), 201
         else:
-            return jsonify({"mensaje": "Error al agregar el product."}), 500
+            return jsonify({"mensaje": "Error while trying to add product."}), 500
 
     else:
-        return jsonify({"mensaje": "Equipo ya existe."}), 400
+        return jsonify({"mensaje": "Product already exists."}), 400
 
 @app.route("/products/<int:id>", methods=["PUT"])
 def modify_product(id):
@@ -145,20 +144,20 @@ def modify_product(id):
     new_sale_price = request.form.get("sale_price")
     
     if products.modify_product(id, new_name, new_description, new_price, new_sale_price):
-        return jsonify({"mensaje": "Equipo modificado"}), 200
+        return jsonify({"mensaje": "Product edited successfully."}), 200
     else:
-        return jsonify({"mensaje": "Equipo no encontrado"}), 403
+        return jsonify({"mensaje": "Product not found."}), 403
 
 @app.route("/products/<int:id>", methods=["DELETE"])
 def delete_product(id):
     product = products.query_product(id)
     if product: 
         if products.delete_product(id):
-            return jsonify({"mensaje": "Equipo eliminado"}), 200
+            return jsonify({"mensaje": "Product deleted successfully."}), 200
         else:
-            return jsonify({"mensaje": "Error al eliminar el product"}), 500
+            return jsonify({"mensaje": "Error while trying to deleted product."}), 500
     else:
-        return jsonify({"mensaje": "Equipo no encontrado"}), 404
+        return jsonify({"mensaje": "Product not found."}), 404
     
 
 #############

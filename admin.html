@@ -1,114 +1,200 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossorigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
-        crossorigin="anonymous"
-      />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@700&family=Urbanist&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""
-      />
-      <title>Point to Point</title>
-      <link rel="icon" href="./images/favicon.ico" />
-    </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@700&family=Urbanist&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <title>Point to Point</title>
+    <link rel="icon" href="./images/favicon.ico" />
   </head>
 
-  <body id="admin">
-    <div class="contenido">
-      <h1>Add Product to List</h1>
+  <body>
+    <header>
+      <nav class="menu">
+        <img src="./images/Logo.png" alt="Logo" width="100" />
+        <button class="buttonHamb">
+          <svg
+            class="svg"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+        <ul class="pages">
+          <li class="nav-item">
+            <a href="index.html" class="indexMenu">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="shopMenu">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="pointers.html" class="pointersMenu">Pointers</a>
+          </li>
+        </ul>
+        <a href="register.html">Register</a>
+      </nav>
+      <ul class="pages-movile">
+        <li class="nav-item">
+          <a href="index.html" class="indexMenu">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="shop.html" class="shopMenu">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a href="pointers.html" class="pointersMenu">Pointers</a>
+        </li>
+        <li class="nav-item">
+          <a href="register.html">Register</a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div class="register">
+        <section class="form-register">
+          <form id="formulario" enctype="multipart/form-data">
+            <fieldset>
+              <h1>Add Product</h1>
+              <label for="id">ID:</label>
+              <input type="text" id="id" name="id" required /><br />
 
-      <!--enctype="multipart/form-data" es necesario para enviar archivos al back.-->
-      <form id="formulario" enctype="multipart/form-data">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required /><br />
+              <label for="id">Name:</label>
+              <input type="text" id="name" name="name" required /><br />
 
-        <label for="id">Name:</label>
-        <input type="text" id="name" name="name" required /><br />
+              <label for="description">Description:</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                required
+              /><br />
 
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required /><br />
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" required /><br />
 
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required /><br />
+              <label for="sale_price">Sale Price:</label>
+              <input type="text" id="sale_price" name="sale_price" /><br />
 
-        <label for="sale_price">Sale Price:</label>
-        <input type="text" id="sale_price" name="sale_price" /><br />
+              <button type="submit" class="queryButton">Add Product</button>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="foot">
+      <div class="imagen-foot">
+        <img src="./images/Logo.png" alt="Logo" width="100" />
+      </div>
+      <div class="icons">
+        <div class="icons-ig">
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="icons-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </div>
+        <div class="icons-youtube">
+          <a href="#">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <div class="icons-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-foot">
+        <strong> Buy Online. Pick Up Anywhere. </strong>
+        <p>&copy; 2023 PoinTo</p>
+        <p>Online convenience, pick up at your preferred location.</p>
+      </div>
+    </footer>
 
-        <button type="submit">Add Product</button>
-      </form>
+    <script>
+      const URL = 'http://127.0.0.1:5000/'
+      // const URL = 'https://pointo.pythonanywhere.com/'
+      document
+        .getElementById('formulario')
+        .addEventListener('submit', function (event) {
+          event.preventDefault()
 
-      <script>
-        const URL = 'http://127.0.0.1:5000/'
+          var formData = new FormData()
+          formData.append('id', document.getElementById('id').value)
+          formData.append('name', document.getElementById('name').value)
+          formData.append(
+            'description',
+            document.getElementById('description').value,
+          )
+          formData.append('price', document.getElementById('price').value)
+          formData.append(
+            'sale_price',
+            document.getElementById('sale_price').value,
+          )
 
-        //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
-        //const URL = "https://USUARIO.pythonanywhere.com/"
-        document
-          .getElementById('formulario')
-          .addEventListener('submit', function (event) {
-            event.preventDefault()
-
-            var formData = new FormData()
-            formData.append('id', document.getElementById('id').value)
-            formData.append('name', document.getElementById('name').value)
-            formData.append(
-              'description',
-              document.getElementById('description').value,
-            )
-            formData.append('price', document.getElementById('price').value)
-            formData.append(
-              'sale_price',
-              document.getElementById('sale_price').value,
-            )
-
-            fetch(URL + 'products', {
-              method: 'POST',
-              body: formData,
-            })
-              .then(function (response) {
-                if (response.ok) {
-                  return response.json()
-                } else {
-                  throw new Error('Error al agregar el equipo.')
-                }
-              })
-
-              .then(function (data) {
-                alert('Equipo agregado correctamente.')
-              })
-
-              .catch(function (error) {
-                alert('Error al agregar el equipo.')
-              })
-
-              .finally(function () {
-                document.getElementById('id').value = ''
-                document.getElementById('name').value = ''
-                document.getElementById('description').value = ''
-                document.getElementById('price').value = ''
-                document.getElementById('sale_price').value = ''
-              })
+          fetch(URL + 'products', {
+            method: 'POST',
+            body: formData,
           })
-      </script>
-    </div>
+            .then(function (response) {
+              if (response.ok) {
+                return response.json()
+              } else {
+                throw new Error('Error while trying to add product.')
+              }
+            })
+
+            .then(function (data) {
+              alert('Product added successfully.')
+              window.location.href = 'shop.html'
+            })
+
+            .catch(function (error) {
+              alert('Error while trying to add product')
+            })
+
+            .finally(function () {
+              document.getElementById('id').value = ''
+              document.getElementById('name').value = ''
+              document.getElementById('description').value = ''
+              document.getElementById('price').value = ''
+              document.getElementById('sale_price').value = ''
+            })
+        })
+    </script>
   </body>
 </html>

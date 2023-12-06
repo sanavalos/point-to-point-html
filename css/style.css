@@ -77,6 +77,12 @@ a:active {
   font-size: 25px;
 }
 
+.addButton {
+  color: #621c19 !important;
+  border-radius: 4px;
+  font-weight: bolder;
+}
+
 main {
   display: grid;
   grid-gap: 25px;
@@ -240,8 +246,10 @@ main {
   border: 2px;
   display: flex;
   justify-content: start;
-  align-items: start;
   grid-area: subtitle2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .contenedor .recentlyAdded {
   display: grid;
@@ -329,6 +337,24 @@ main {
   transition: 2s;
 }
 
+.queryButton {
+  padding: 2px;
+  width: 100%;
+  background-color: #382f2a;
+  border: none;
+  outline: none;
+  color: #71695b;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.queryButton:hover {
+  background-color: #621c19;
+  transition: 2s;
+}
+
 @media screen and (max-width: 768px) {
   .contenedor {
     margin: 20px auto;
@@ -339,10 +365,10 @@ main {
     grid-template-areas:
       'banner'
       'dolar'
-      'subtitle'
-      'onSale'
       'subtitle2'
       'recentlyAdded'
+      'subtitle'
+      'onSale'
       'subtitle3'
       'local';
   }
@@ -385,6 +411,13 @@ main {
   align-self: center;
   justify-content: space-evenly;
   flex-direction: row-reverse;
+}
+
+.modify {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: space-evenly;
 }
 
 .buttons {
@@ -680,15 +713,6 @@ main {
   justify-content: center;
 }
 
-#formulario {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid lightslategray;
-  border-radius: 5px;
-}
-
 table {
   max-width: 90%;
   margin: 0 auto;
@@ -701,4 +725,26 @@ table {
 label {
   display: block;
   margin-bottom: 5px;
+}
+
+.searchButton {
+  padding: 2px;
+  width: 100%;
+  background-color: #382f2a;
+  border: none;
+  outline: none;
+  color: #71695b;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cancelButton {
+  /* center a tag to middle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  width: 100%;
 }

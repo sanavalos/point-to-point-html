@@ -33,6 +33,7 @@
     ></script>
     <script>
       const URL = 'http://127.0.0.1:5000/'
+      // const URL = 'https://pointo.pythonanywhere.com/'
 
       function removeProduct(id) {
         try {
@@ -40,10 +41,10 @@
             method: 'DELETE',
           }).then((response) => {
             if (response.ok) {
-              alert('Producto eliminado correctamente.')
+              alert('Product deleted successfully.')
               window.location.reload()
             } else {
-              throw new Error('Error al eliminar el producto.')
+              throw new Error('Error while trying to delete product.')
             }
           })
         } catch (error) {
@@ -181,7 +182,7 @@
 
         <div class="subtitle2">
           <h2>Recently Added</h2>
-          <a href="admin.html">Add product</a>
+          <a href="admin.html" class="addButton">Add product</a>
         </div>
 
         <div class="recentlyAdded">
@@ -405,8 +406,8 @@
       </div>
       <div class="text-foot">
         <strong> Buy Online. Pick Up Anywhere. </strong>
-        <p>&copy; 2023 Point To</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <p>&copy; 2023 PoinTo</p>
+        <p>Online convenience, pick up at your preferred location.</p>
       </div>
     </footer>
 
