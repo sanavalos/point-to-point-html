@@ -21,6 +21,12 @@
       href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@700&family=Urbanist&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
     <title>Point to Point</title>
     <link rel="icon" href="./images/favicon.ico" />
   </head>
@@ -69,82 +75,38 @@
         </li>
       </ul>
     </header>
-
-    <main class="login">
+    <main>
       <div class="register">
         <section class="form-register">
-          <form action="javascript:formValidation()">
+          <form id="formulario" enctype="multipart/form-data">
             <fieldset>
-              <legend class="visually-hidden">Register</legend>
-              <h1>REGISTER</h1>
-              <p id="error-message"></p>
-              <label for="name" class="visually-hidden">Name: </label>
-              <input type="text" name="name" id="name" placeholder="Name" />
+              <h1>Add Product</h1>
+              <label for="id">ID:</label>
+              <input type="text" id="id" name="id" required /><br />
 
-              <label for="lastname" class="visually-hidden">Lastname: </label>
+              <label for="id">Name:</label>
+              <input type="text" id="name" name="name" required /><br />
+
+              <label for="description">Description:</label>
               <input
                 type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Lastname"
-              />
+                id="description"
+                name="description"
+                required
+              /><br />
 
-              <label for="email" class="visually-hidden">Email: </label>
-              <input type="text" name="email" id="email" placeholder="Email" />
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" required /><br />
 
-              <label for="password" class="visually-hidden">Password: </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-              />
+              <label for="sale_price">Sale Price:</label>
+              <input type="text" id="sale_price" name="sale_price" /><br />
 
-              <label for="confirm-password" class="visually-hidden"
-                >Confirm Password:
-              </label>
-              <input
-                type="password"
-                name="confirm-password"
-                id="confirm-password"
-                placeholder="Confirm Password"
-              />
-
-              <label for="user-type" class="visually-hidden"
-                >Choose user type:</label
-              >
-              <select name="user-type" id="user-type">
-                <option value="none">--SELECT A USER TYPE--</option>
-                <option value="customer">Customer</option>
-                <option value="pointer">Pointer</option>
-              </select>
-              <div class="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <label for="checkbox"
-                  >I confirm I am 18 years of age or older</label
-                >
-              </div>
+              <button type="submit" class="queryButton">Add Product</button>
             </fieldset>
-
-            <br /><br />
-
-            <div class="buttons">
-              <button type="reset" value="clear" class="form">CLEAR</button>
-              <button type="submit" value="join" class="form">JOIN</button>
-            </div>
           </form>
-        </section>
-        <section class="section-users">
-          <div class="users">
-            <h2 id="customer">CUSTOMER</h2>
-            <h2 id="pointer">POINTER</h2>
-          </div>
-          <ul class="actions"></ul>
-          <p></p>
         </section>
       </div>
     </main>
-
     <footer class="foot">
       <div class="imagen-foot">
         <img src="./images/Logo.png" alt="Logo" width="100" />
@@ -182,7 +144,57 @@
         <p>Online convenience, pick up at your preferred location.</p>
       </div>
     </footer>
-    <script src="form.js"></script>
-    <script src="menu.js"></script>
+
+    <script>
+      const URL = 'http://127.0.0.1:5000/'
+      // const URL = 'https://pointo.pythonanywhere.com/'
+      document
+        .getElementById('formulario')
+        .addEventListener('submit', function (event) {
+          event.preventDefault()
+
+          var formData = new FormData()
+          formData.append('id', document.getElementById('id').value)
+          formData.append('name', document.getElementById('name').value)
+          formData.append(
+            'description',
+            document.getElementById('description').value,
+          )
+          formData.append('price', document.getElementById('price').value)
+          formData.append(
+            'sale_price',
+            document.getElementById('sale_price').value,
+          )
+
+          fetch(URL + 'products', {
+            method: 'POST',
+            body: formData,
+          })
+            .then(function (response) {
+              if (response.ok) {
+                return response.json()
+              } else {
+                throw new Error('Error while trying to add product.')
+              }
+            })
+
+            .then(function (data) {
+              alert('Product added successfully.')
+              window.location.href = 'shop.html'
+            })
+
+            .catch(function (error) {
+              alert('Error while trying to add product')
+            })
+
+            .finally(function () {
+              document.getElementById('id').value = ''
+              document.getElementById('name').value = ''
+              document.getElementById('description').value = ''
+              document.getElementById('price').value = ''
+              document.getElementById('sale_price').value = ''
+            })
+        })
+    </script>
   </body>
 </html>
