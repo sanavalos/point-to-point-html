@@ -41,11 +41,6 @@ class Products:
             price INT NOT NULL,
             sale_price INT DEFAULT NULL)''')
         
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS pointers (
-            name VARCHAR(255) NOT NULL,
-            latitude VARCHAR(255) NOT NULL,
-            longitude VARCHAR(255) NOT NULL)''')
-        
         self.conn.commit()
 
         self.cursor.close()
