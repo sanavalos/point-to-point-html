@@ -418,6 +418,7 @@ main {
   flex-wrap: wrap;
   align-self: center;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .buttons {
