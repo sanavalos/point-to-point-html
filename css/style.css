@@ -254,10 +254,10 @@ main {
 .contenedor .recentlyAdded {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
-  column-gap: 10px;
+  column-gap: 4vw;
   row-gap: 10px;
   padding: 0px 0px 20px 0px;
-  justify-content: space-between;
+  justify-content: start;
   border: 2px;
   color: #000;
   grid-area: local;

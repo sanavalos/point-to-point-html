@@ -101,6 +101,9 @@
               <label for="sale_price">Sale Price:</label>
               <input type="text" id="sale_price" name="sale_price" /><br />
 
+              <label for="imagenProducto">Imagen del producto:</label>
+              <input type="file" id="imagenProducto" name="imagen" />
+
               <button type="submit" class="queryButton">Add Product</button>
             </fieldset>
           </form>
@@ -146,8 +149,8 @@
     </footer>
 
     <script>
-      const URL = 'http://127.0.0.1:5000/'
-      // const URL = 'https://pointo.pythonanywhere.com/'
+      // const URL = 'http://127.0.0.1:5000/'
+      const URL = 'https://pointoapp.pythonanywhere.com/'
       document
         .getElementById('formulario')
         .addEventListener('submit', function (event) {
@@ -161,6 +164,10 @@
             document.getElementById('description').value,
           )
           formData.append('price', document.getElementById('price').value)
+          formData.append(
+            'imagen',
+            document.getElementById('imagenProducto').files[0],
+          )
           formData.append(
             'sale_price',
             document.getElementById('sale_price').value,
@@ -192,6 +199,7 @@
               document.getElementById('name').value = ''
               document.getElementById('description').value = ''
               document.getElementById('price').value = ''
+              document.getElementById('imagenProducto').value = ''
               document.getElementById('sale_price').value = ''
             })
         })

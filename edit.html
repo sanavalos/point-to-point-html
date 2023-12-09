@@ -122,6 +122,25 @@
                   id="salePriceModificar"
                   v-model="salePrice"
                 /><br />
+
+                <img v-if="imagen_url && !imagenSeleccionada" :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
+                 alt="Product's image" style="max-width: 200px;">
+
+                <img
+                  v-if="imagenSeleccionada"
+                  :src="imagenUrlTemp"
+                  alt="Preview new"
+                  style="max-width: 200px"
+                />
+
+                <!-- Input para nueva imagen -->
+                <label for="nuevaImagen">Nueva Imagen:</label>
+                <input
+                  type="file"
+                  id="nuevaImagen"
+                  @change="seleccionarImagen"
+                /><br />
+                <br />
                 <br />
                 <button type="submit" class="searchButton">
                   Update Product
@@ -173,8 +192,8 @@
     </footer>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
-      const URL = 'http://127.0.0.1:5000/'
-      // const URL = 'https://pointo.pythonanywhere.com/'
+      // const URL = 'http://127.0.0.1:5000/'
+      const URL = 'https://pointoapp.pythonanywhere.com/'
       const app = Vue.createApp({
         data() {
           return {
@@ -182,6 +201,9 @@
             name: '',
             description: '',
             price: '',
+            imagen_url: '',
+            imagenSeleccionada: null,
+            imagenUrlTemp: null,
             salePrice: '',
           }
         },
@@ -210,11 +232,17 @@
                 this.description = data.description
                 this.price = data.price
                 this.salePrice = data.sale_price
+                this.imagen_url = data.imagen_url
               })
               .catch((error) => {
                 this.limpiarFormulario()
                 alert('Product not found.')
               })
+          },
+          seleccionarImagen(event) {
+            const file = event.target.files[0]
+            this.imagenSeleccionada = file
+            this.imagenUrlTemp = URL.createObjectURL(file)
           },
           guardarCambios() {
             const formData = new FormData()
@@ -222,6 +250,13 @@
             formData.append('name', this.name)
             formData.append('description', this.description)
             formData.append('price', this.price)
+            if (this.imagenSeleccionada) {
+              formData.append(
+                'imagen',
+                this.imagenSeleccionada,
+                this.imagenSeleccionada.name,
+              )
+            }
             formData.append('sale_price', this.salePrice)
 
             fetch(URL + 'products/' + this.id, {
@@ -237,7 +272,7 @@
               })
               .then((data) => {
                 alert('Product updated successfully.')
-                window.location.href = 'shop.html'
+                // window.location.href = 'shop.html'
                 this.limpiarFormulario()
               })
               .catch((error) => {
@@ -251,6 +286,9 @@
             this.name = ''
             this.price = ''
             this.salePrice = ''
+            this.imagen_url = ''
+            this.imagenSeleccionada = null
+            this.imagenUrlTemp = null
           },
         },
         mounted() {
