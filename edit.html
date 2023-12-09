@@ -122,19 +122,12 @@
                   id="salePriceModificar"
                   v-model="salePrice"
                 /><br />
-
-                <img v-if="imagen_url && !imagenSeleccionada" :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
-                 alt="Product's image" style="max-width: 200px;">
-
-                <img
-                  v-if="imagenSeleccionada"
-                  :src="imagenUrlTemp"
-                  alt="Preview new"
-                  style="max-width: 200px"
-                />
-
-                <!-- Input para nueva imagen -->
-                <label for="nuevaImagen">Nueva Imagen:</label>
+                <div style="display: flex; flex-direction: column;">
+                  <label>Current image:</label>
+                  <img v-if="imagen_url && !imagenSeleccionada" :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
+                   alt="Product's image" style="max-width: 200px;">
+                </div>
+                <label for="nuevaImagen">New image:</label>
                 <input
                   type="file"
                   id="nuevaImagen"
