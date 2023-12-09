@@ -70,7 +70,7 @@
               let items = document.createElement('div')
               items.classList.add('items')
               let img = document.createElement('img')
-              img.src = './images/IMG/IMG-8.jpg'
+              img.src = `./static/imagenes/${element.imagen_url}`
               img.alt = element.name
               let info = document.createElement('div')
               info.classList.add('info')
@@ -185,63 +185,7 @@
           <a href="admin.html" class="addButton">Add product</a>
         </div>
 
-        <div class="recentlyAdded">
-          <div class="items">
-            <img src="./images/IMG/IMG-6.jpg" alt="product 6" />
-            <div class="info">
-              <h3>Nike Nitro</h3>
-              <p>Nike Men's Air Max Shoes</p>
-              <div class="price">
-                <p>U$D 85</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-7.jpg" alt="product 7" />
-            <div class="info">
-              <h3>Nike Blastic</h3>
-              <p>Nike Men's urban Shoes</p>
-              <div class="price">
-                <p>U$D 71</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-8.jpg" alt="product 8" />
-            <div class="info">
-              <h3>Nike AirConviction</h3>
-              <p>Nike Women's Air Max Shoes</p>
-              <div class="price">
-                <p>U$D 79</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-9.jpg" alt="product 9" />
-            <div class="info">
-              <h3>Attix Prestige</h3>
-              <p>Women's urban Shoes</p>
-              <div class="price">
-                <p>U$D 65</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-          <div class="items">
-            <img src="./images/IMG/IMG-15.jpg" alt="product 15" />
-            <div class="info">
-              <h3>Converse Casual</h3>
-              <p>All Star Stripes Sneakers</p>
-              <div class="price">
-                <p>U$D 75</p>
-              </div>
-              <button>Add to list</button>
-            </div>
-          </div>
-        </div>
+        <div class="recentlyAdded"></div>
 
         <div class="subtitle">
           <h2>On sale</h2>

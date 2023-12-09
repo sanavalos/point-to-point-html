@@ -1,11 +1,14 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 
 from flask_cors import CORS
 
 import mysql.connector
 
 from werkzeug.utils import secure_filename
+
+import os
+import time
 
 #--------------------------------------------------------------------
 
@@ -39,6 +42,7 @@ class Products:
             name VARCHAR(255) NOT NULL,
             description VARCHAR(255) NOT NULL,
             price INT NOT NULL,
+            imagen_url VARCHAR(255),
             sale_price INT DEFAULT NULL)''')
         
         self.conn.commit()
@@ -46,30 +50,26 @@ class Products:
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
 
-    def add_product(self, id, name, description, price, sale_price = None):
+    def add_product(self, id, name, description, price, imagen, sale_price = None):
 
         self.cursor.execute(f"SELECT * FROM products WHERE id = {id}")
         product_exists = self.cursor.fetchone()
         if product_exists:
             return False
 
-        sql = f"INSERT INTO products \
-               (id, name, description, price, sale_price) \
-               VALUES \
-               ({id}, '{name}', '{description}', {price}, '{sale_price}')"
-        self.cursor.execute(sql)
+        sql = "INSERT INTO products (id, name, description, price, imagen_url, sale_price) VALUES (%s, %s, %s, %s, %s, %s)"
+        values = (id, name, description, price, imagen, sale_price)
+        self.cursor.execute(sql, values)
         self.conn.commit()
         return True
     
     def query_product(self, id):
-       
         self.cursor.execute(f"SELECT * FROM products WHERE id = {id}")
         return self.cursor.fetchone()
     
-    def modify_product(self, id, new_name, new_description, new_price, new_sale_price):
-
-        sql = "UPDATE products SET name = %s, description = %s, price = %s, sale_price = %s WHERE id = %s"
-        valores = (new_name, new_description, new_price, new_sale_price, id)
+    def modify_product(self, id, new_name, new_description, new_price, nueva_imagen, new_sale_price):
+        sql = "UPDATE products SET name = %s, description = %s, price = %s, imagen_url= %s, sale_price = %s WHERE id = %s"
+        valores = (new_name, new_description, new_price, nueva_imagen, new_sale_price, id)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0 
@@ -92,6 +92,7 @@ class Products:
             print(f"Name.....: {product['name']}")
             print(f"Description: {product['description']}")
             print(f"Price.......: {product['price']}")
+            print(f"Imagen.....: {product['imagen_url']}")
             print(f"Sale price..: {product['sale_price']}")
             print("-" * 40)
         else:
@@ -99,6 +100,8 @@ class Products:
 
 #####################
 products = Products(host='localhost', user='root', password='', database='miapp')
+
+RUTA_DESTINO = './static/imagenes/'
 
 @app.route("/products", methods=["GET"])
 def list_products():
@@ -119,12 +122,19 @@ def add_product():
     name = request.form['name']
     description = request.form['description']
     price = request.form['price']
+    imagen = request.files['imagen']
     sale_price = request.form['sale_price']
+    name_imagen = ""
 
     product = products.query_product(id)
     if not product: 
-        if products.add_product(id, name, description, price, sale_price):
-            return jsonify({"mensaje": "Product added successfully."}), 201
+        name_imagen = secure_filename(imagen.filename)
+        name_base, extension = os.path.splitext(name_imagen)
+        name_imagen = f"{name_base}_{int(time.time())}{extension}"
+
+        if products.add_product(id, name, description, price, name_imagen, sale_price):
+            imagen.save(os.path.join(RUTA_DESTINO, name_imagen))
+            return jsonify({"mensaje": "Product added successfully.", "imagen": name_imagen}), 201
         else:
             return jsonify({"mensaje": "Error while trying to add product."}), 500
 
@@ -136,9 +146,19 @@ def modify_product(id):
     new_name = request.form.get("name")
     new_description = request.form.get("description")
     new_price = request.form.get("price")
+    imagen = request.files['imagen']
     new_sale_price = request.form.get("sale_price")
-    
-    if products.modify_product(id, new_name, new_description, new_price, new_sale_price):
+    name_imagen = secure_filename(imagen.filename) 
+    name_base, extension = os.path.splitext(name_imagen)
+    name_imagen = f"{name_base}_{int(time.time())}{extension}"
+    product = product = products.query_product(id)
+    if product:
+        old_imagen = product["imagen_url"]
+        rout_imagen = os.path.join(RUTA_DESTINO, old_imagen)
+        if os.path.exists(rout_imagen):
+            os.remove(rout_imagen)
+    if products.modify_product(id, new_name, new_description, new_price, name_imagen, new_sale_price):
+        imagen.save(os.path.join(RUTA_DESTINO, name_imagen))
         return jsonify({"mensaje": "Product edited successfully."}), 200
     else:
         return jsonify({"mensaje": "Product not found."}), 403
@@ -146,7 +166,13 @@ def modify_product(id):
 @app.route("/products/<int:id>", methods=["DELETE"])
 def delete_product(id):
     product = products.query_product(id)
+
     if product: 
+        old_image = product["imagen_url"]
+        rout_imagen = os.path.join(RUTA_DESTINO, old_image)
+
+        if os.path.exists(rout_imagen):
+            os.remove(rout_imagen)
         if products.delete_product(id):
             return jsonify({"mensaje": "Product deleted successfully."}), 200
         else:
