@@ -123,19 +123,13 @@
                   v-model="salePrice"
                 /><br />
 
-                <img
-                  v-if="imagen_url && !imagenSeleccionada"
-                  :src="'./static/imagenes/' + imagen_url"
-                  alt="Imagen del producto"
-                  style="max-width: 200px"
-                />
-                <!-- <img v-if="imagen_url && !imagenSeleccionada" :src="'https://www.pythonanywhere.com/user/USUARIO/files/home/USUARIO/mysite/static/imagenes/' + imagen_url"
-                 alt="Imagen del equipo" style="max-width: 200px;"> -->
+                <img v-if="imagen_url && !imagenSeleccionada" :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
+                 alt="Product's image" style="max-width: 200px;">
 
                 <img
                   v-if="imagenSeleccionada"
                   :src="imagenUrlTemp"
-                  alt="Vista previa de la nueva imagen"
+                  alt="Preview new"
                   style="max-width: 200px"
                 />
 
@@ -198,8 +192,8 @@
     </footer>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
-      const URL = 'http://127.0.0.1:5000/'
-      // const URL = 'https://pointo.pythonanywhere.com/'
+      // const URL = 'http://127.0.0.1:5000/'
+      const URL = 'https://pointoapp.pythonanywhere.com/'
       const app = Vue.createApp({
         data() {
           return {

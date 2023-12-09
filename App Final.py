@@ -99,9 +99,9 @@ class Products:
             print("Product not found.")
 
 #####################
-products = Products(host='localhost', user='root', password='', database='miapp')
+products = Products(host='pointoapp.mysql.pythonanywhere-services.com', user='pointoapp', password='tidedet237@jalunaki.com', database='pointoapp$miapp')
 
-RUTA_DESTINO = './static/imagenes/'
+RUTA_DESTINO = '/home/pointoapp/mysite/static/imagenes'
 
 @app.route("/products", methods=["GET"])
 def list_products():
