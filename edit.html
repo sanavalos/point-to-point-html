@@ -118,14 +118,24 @@
                 <label for="salePriceModificar">Sale Price:</label>
                 <br />
                 <input
-                  type="text"
+                  type="number"
                   id="salePriceModificar"
                   v-model="salePrice"
                 /><br />
-                <div style="display: flex; flex-direction: column; align-items: center;">
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
                   <label>Current image:</label>
-                  <img v-if="imagen_url && !imagenSeleccionada" :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
-                   alt="Product's image" style="max-width: 200px;">
+                  <img
+                    v-if="imagen_url && !imagenSeleccionada"
+                    :src="`https://www.pythonanywhere.com/user/pointoapp/files/home/pointoapp/mysite/static/imagenes/${imagen_url}`"
+                    alt="Product's image"
+                    style="max-width: 200px"
+                  />
                 </div>
                 <label for="nuevaImagen">New image:</label>
                 <input
@@ -249,6 +259,8 @@
                 this.imagenSeleccionada,
                 this.imagenSeleccionada.name,
               )
+            } else {
+              formData.append('imagen', this.imagen_url)
             }
             formData.append('sale_price', this.salePrice)
 

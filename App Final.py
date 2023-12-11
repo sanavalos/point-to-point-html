@@ -146,20 +146,28 @@ def modify_product(id):
     new_name = request.form.get("name")
     new_description = request.form.get("description")
     new_price = request.form.get("price")
-    imagen = request.files['imagen']
+    imagen = request.files['imagen'] if 'imagen' in request.files else None
     new_sale_price = request.form.get("sale_price")
-    name_imagen = secure_filename(imagen.filename) 
-    name_base, extension = os.path.splitext(name_imagen)
-    name_imagen = f"{name_base}_{int(time.time())}{extension}"
     product = product = products.query_product(id)
+    name_imagen = request.form.get("imagen") if not 'imagen' in request.files else None
     if product:
         old_imagen = product["imagen_url"]
         rout_imagen = os.path.join(RUTA_DESTINO, old_imagen)
-        if os.path.exists(rout_imagen):
-            os.remove(rout_imagen)
-    if products.modify_product(id, new_name, new_description, new_price, name_imagen, new_sale_price):
-        imagen.save(os.path.join(RUTA_DESTINO, name_imagen))
-        return jsonify({"mensaje": "Product edited successfully."}), 200
+        if imagen:
+            name_imagen = secure_filename(imagen.filename) 
+            name_base, extension = os.path.splitext(name_imagen)
+            name_imagen = f"{name_base}_{int(time.time())}{extension}"
+            if old_imagen == name_imagen:
+                name_imagen = old_imagen
+            else:
+                if os.path.exists(rout_imagen):
+                    os.remove(rout_imagen)
+        if products.modify_product(id, new_name, new_description, new_price, name_imagen, new_sale_price):
+            if imagen:
+               imagen.save(os.path.join(RUTA_DESTINO, name_imagen))
+            return jsonify({"mensaje": "Product edited successfully."}), 200
+        else:
+            return jsonify({"mensaje": "Product not found."}), 403
     else:
         return jsonify({"mensaje": "Product not found."}), 403
 
